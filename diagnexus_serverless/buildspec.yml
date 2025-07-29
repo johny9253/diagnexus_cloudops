@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      terraform: 1.6
+    commands:
+      - echo "Initializing Terraform"
+      - terraform init
+  build:
+    commands:
+      - echo "Planning Infrastructure"
+      - terraform plan
+  post_build:
+    commands:
+      - echo "Applying Terraform"
+      - terraform apply -auto-approve
